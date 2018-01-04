@@ -3,7 +3,6 @@ package com.rpc.server;
 import com.rpc.common.model.RpcRequest;
 import com.rpc.common.model.RpcResponse;
 import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import net.sf.cglib.reflect.FastClass;
@@ -50,7 +49,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest>{
 
         Object bean = handlerMap.get(interfaceName);
         if(bean == null){
-            throw new RuntimeException("cannot find service bean by ket: %s" + interfaceName);
+            throw new RuntimeException("cannot find service:" + interfaceName);
         }
 
         FastClass fastClass = FastClass.create(bean.getClass());

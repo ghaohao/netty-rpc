@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="rpc-client" />
         <module name="rpc-common" />
-        <module name="rpc-facade" />
         <module name="rpc-server" />
       </profile>
     </annotationProcessing>

@@ -126,6 +126,5 @@
         <module>rpc-client</module>
         <module>rpc-server</module>
         <module>rpc-common</module>
-        <module>rpc-facade</module>
     </modules>
 </project>

@@ -1,6 +1,6 @@
 package com.rpc.service.impl;
 
-import com.rpc.facade.service.HelloService;
+import com.rpc.common.service.HelloService;
 import com.rpc.server.RpcService;
 
 /**
@@ -13,6 +13,6 @@ import com.rpc.server.RpcService;
 public class HelloServiceImpl implements HelloService{
     @Override
     public String hello(String name) {
-        return "Hello" + name;
+        return name;
     }
 }

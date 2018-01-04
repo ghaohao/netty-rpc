@@ -15,6 +15,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/facade/pom.xml" />
+        <option value="$PROJECT_DIR$/rpc-facade/pom.xml" />
         <option value="$PROJECT_DIR$/rpc-registry-zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/rpc-registry/pom.xml" />
       </set>

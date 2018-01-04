@@ -27,6 +27,10 @@ public class RpcProxy {
     }
 
     public <T> T create(final Class<?> clazz){
+        return create(clazz, null);
+    }
+
+    public <T> T create(final Class<?> clazz, final String version){
         return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[]{clazz}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -36,6 +40,10 @@ public class RpcProxy {
                 request.setMethodName(method.getName());
                 request.setParameterTypes(method.getParameterTypes());
                 request.setParameters(args);
+
+                if(StringUtils.isNotEmpty(version)){
+                    request.setVersion(version);
+                }
 
                 //TODO 服务发现
 
