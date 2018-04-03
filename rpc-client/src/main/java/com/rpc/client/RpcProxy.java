@@ -5,6 +5,8 @@ import com.rpc.common.model.RpcResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -17,18 +19,10 @@ import java.util.UUID;
  * @Version V1.0
  * @Date 18/1/3 上午10:34
  */
+@Component
 public class RpcProxy {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RpcProxy.class);
-
+    @Value("${rpc.client.address}")
     private String address;
-
-    public RpcProxy(String address){
-        this.address = address;
-    }
-
-    public <T> T create(final Class<?> clazz){
-        return create(clazz, null);
-    }
 
     public <T> T create(final Class<?> clazz, final String version){
         return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[]{clazz}, new InvocationHandler() {

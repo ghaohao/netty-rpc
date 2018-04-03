@@ -12,15 +12,11 @@
         <module name="rpc-server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7">
-      <module name="facade" target="1.7" />
-      <module name="netty-rpc" target="1.7" />
-      <module name="rpc-client" target="1.7" />
-      <module name="rpc-common" target="1.7" />
-      <module name="rpc-facade" target="1.7" />
-      <module name="rpc-registry" target="1.7" />
-      <module name="rpc-registry-zookeeper" target="1.7" />
-      <module name="rpc-server" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="netty-rpc" target="1.8" />
+      <module name="rpc-client" target="1.8" />
+      <module name="rpc-common" target="1.8" />
+      <module name="rpc-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

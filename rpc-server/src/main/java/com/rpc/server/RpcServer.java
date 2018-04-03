@@ -18,8 +18,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,17 +32,16 @@ import java.util.Map;
  * @Version V1.0
  * @Date 17/12/29 下午5:28
  */
+@Component
 public class RpcServer implements ApplicationContextAware, InitializingBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcServer.class);
     private Map<String, Object> handlerMap = new HashMap<>();
+
+    @Value("${rpc.server.address}")
     private String serverAddress;
 
-    public RpcServer(String serverAddress){
-        this.serverAddress = serverAddress;
-    }
-
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet(){
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
         try {
